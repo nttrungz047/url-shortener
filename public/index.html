@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rút gọn liên kết</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<main class="wrap">
+  <header class="eyebrow">
+    <span class="eyebrow__mark">/&gt;</span>
+    <span>rút gọn liên kết — gọn hơn, dễ chia sẻ hơn</span>
+  </header>
+
+  <section class="card" id="composer">
+    <h1 class="title">Dán link dài vào đây</h1>
+
+    <form id="shorten-form" autocomplete="off">
+      <label class="field">
+        <span class="field__label">Liên kết gốc</span>
+        <input
+          type="text"
+          id="url-input"
+          name="url"
+          placeholder="https://vi-du-mot-website-nao-do.com/duong-dan/rat-la-dai-2026"
+          required
+        />
+      </label>
+
+      <div class="field field--inline">
+        <button type="button" id="toggle-alias" class="link-btn">+ đặt mã riêng</button>
+        <label class="field field--alias hidden" id="alias-field">
+          <span class="field__label">Mã tuỳ chỉnh (tuỳ chọn)</span>
+          <input type="text" id="alias-input" name="code" placeholder="vd: khuyen-mai-tet" />
+        </label>
+      </div>
+
+      <button type="submit" class="btn-primary" id="submit-btn">
+        <span id="submit-label">Rút gọn ngay</span>
+      </button>
+
+      <p class="error hidden" id="error-msg"></p>
+    </form>
+  </section>
+
+  <section class="card result hidden" id="result-card">
+    <div class="compress-gauge">
+      <div class="compress-gauge__track">
+        <div class="compress-gauge__before" id="gauge-before"></div>
+        <div class="compress-gauge__after" id="gauge-after"></div>
+      </div>
+      <p class="compress-gauge__label" id="gauge-label"></p>
+    </div>
+
+    <div class="result-row">
+      <code class="short-url" id="short-url-text"></code>
+      <button class="btn-copy" id="copy-btn">Sao chép</button>
+    </div>
+
+    <p class="result-original" id="original-url-text"></p>
+  </section>
+
+  <section class="card recent">
+    <div class="recent__head">
+      <h2>Link gần đây</h2>
+      <button class="link-btn" id="refresh-btn">làm mới</button>
+    </div>
+    <ul class="recent__list" id="recent-list">
+      <li class="recent__empty">Chưa có link nào. Tạo cái đầu tiên ở trên nhé.</li>
+    </ul>
+  </section>
+</main>
+
+<script src="/script.js"></script>
+</body>
+</html>
